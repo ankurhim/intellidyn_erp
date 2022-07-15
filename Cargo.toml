@@ -1,0 +1,10 @@
+[package]
+name = "intellidyn_erp"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio-postgres = { version = "0.7.6", features = ["runtime", "with-time-0_3", "with-uuid-1", "with-serde_json-1"] }
+openssl = { version = "0.10.41", features = ["vendored"] }
