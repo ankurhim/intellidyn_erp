@@ -1,32 +1,27 @@
 mod db;
-mod company;
+mod ppie;
 use std::rc::Rc;
 use std::cell::RefCell;
 use crate::db::service::Service;
-use crate::company::Company;
+use crate::ppie::instance_img::enterprise_structure::definition::financial_accounting::ox15_define_company::company::Company;
+use crate::ppie::instance_img::enterprise_structure::definition::financial_accounting::ox03_define_business_area::business_area::BusinessArea;
 
 #[tokio::main]
 async fn main() {
     let new_service = Service::new().await;
     let serv = Rc::new(RefCell::new(new_service));
 
-    Company::create_table(&serv.borrow()).await;
+    BusinessArea::create_table(&serv.borrow()).await;
 
-    let new_company = Company::new(
-        "201".to_string(),
-        "Mass Wire and Steels Pvt. Ltd.".to_string(),
-        "".to_string(),
-        "RIICO Industrial Estate".to_string(),
-        "301019".to_string(),
-        "Bhiwadi".to_string(),
-        "IN".to_string(),
-        "ENG".to_string(),
-        "INR".to_string(),
-        "".to_string(),
-        "".to_string(),
+    let new_business_area = BusinessArea::new(
+        "110".to_string(),
+        "Unit-1".to_string(),
+        "Plant-1".to_string(),
         "".to_string(),
         "admin".to_string()
     );
 
-    Company::select_all(&serv.borrow()).await;
+    // new_business_area.insert(&serv.borrow()).await;
+
+    BusinessArea::select_all(&serv.borrow()).await;
 }
