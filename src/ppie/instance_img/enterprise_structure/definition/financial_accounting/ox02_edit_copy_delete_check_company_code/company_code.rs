@@ -14,13 +14,10 @@ use std::str::FromStr;
 /// level. Under group company, you generate consolidated financial statements as per 
 /// requirements of an organization.
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Company {
-    pub company_pk: String,
-    pub company_key: String,
+pub struct CompanyCode {
+    pub company_code_pk: String,
+    pub company_code: String,
     pub company_name: String,
-    pub company_name_2: Option<String>,
-    pub street: String,
-    pub postal_code: String,
     pub city: String,
     pub country: Country,
     pub language: Language,
