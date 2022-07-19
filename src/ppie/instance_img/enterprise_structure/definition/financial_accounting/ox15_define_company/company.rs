@@ -15,7 +15,7 @@ use std::str::FromStr;
 /// requirements of an organization.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Company {
-    pub company_pk: String,
+    pub company_pk: Uuid,
     pub company_key: String,
     pub company_name: String,
     pub company_name_2: Option<String>,
@@ -51,7 +51,7 @@ impl Company {
         created_by: String
     ) -> Self {
         Company {
-            company_pk: Uuid::new_v4().to_string(),
+            company_pk: Uuid::new_v4(),
             company_key: company_key.to_string(),
             company_name: company_name.to_string(),
             company_name_2: match company_name_2.len() {
