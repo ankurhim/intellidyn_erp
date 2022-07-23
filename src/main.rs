@@ -5,6 +5,7 @@ mod enums;
 use crate::db::service::Service;
 use crate::ppie::instance_img::enterprise_structure::definition::financial_accounting::ox15_define_company::company::Company;
 use crate::ppie::instance_img::enterprise_structure::definition::financial_accounting::ox02_edit_copy_delete_check_company_code::company_code::CompanyCode;
+use crate::ppie::instance_img::enterprise_structure::assignment::financial_accounting::ox16_assign_company_code_to_company::assign_company_code_to_company::CompanyCodeToCompany;
 use crate::ppie::instance_img::enterprise_structure::definition::financial_accounting::ox03_define_business_area::business_area::BusinessArea;
 
 #[tokio::main]
@@ -12,6 +13,7 @@ async fn main() {
     let new_service = Service::new().await;
 
     Company::create_table(&new_service).await;
+    CompanyCode::create_table(&new_service).await;
     CompanyCode::create_table(&new_service).await;
     BusinessArea::create_table(&new_service).await;
 

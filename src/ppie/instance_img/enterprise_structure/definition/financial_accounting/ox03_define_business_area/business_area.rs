@@ -1,10 +1,6 @@
 use uuid::Uuid;
 use serde_derive::{ Serialize, Deserialize };
 use crate::db::service::Service;
-use std::{
-    rc::Rc,
-    cell::RefCell
-};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct BusinessArea {
